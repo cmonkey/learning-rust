@@ -33,6 +33,12 @@ fn main() {
         println!("rev number = {}", number);
     }
 
+    let s = String::from("hello");
+
+    take_string(s);
+
+    // println!("s = {}", s); s 离开作用域，没有所有权
+
     let plus_one = plus_one(10);
 
     println!("plus_one = {}", plus_one);
@@ -72,4 +78,8 @@ fn main() {
 
 fn plus_one(x: i32) -> i32 {
     x + 1
+}
+
+fn take_string(s: String) {
+    println!("s = {}", s);
 }
