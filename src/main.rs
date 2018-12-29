@@ -32,6 +32,7 @@ impl Rectangle{
     }
 }
 
+#[derive(Debug)]
 enum IpAddKind{
     V4,
     V6,
