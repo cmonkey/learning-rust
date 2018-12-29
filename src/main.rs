@@ -24,6 +24,15 @@ fn main() {
         println!("arr = {}", arr);
     }
 
+    for number in (1..10) {
+        println!("number = {}", number);
+    }
+
+    for number in (1..10).rev() {
+
+        println!("rev number = {}", number);
+    }
+
     let plus_one = plus_one(10);
 
     println!("plus_one = {}", plus_one);
