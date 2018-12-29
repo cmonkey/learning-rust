@@ -38,6 +38,7 @@ enum IpAddKind{
     V6,
 }
 
+#[derive(Debug)]
 struct IpAddr{
     kind:IpAddKind,
     address:String,
@@ -148,6 +149,19 @@ fn main() {
 
     println!("v4 = {:?}", v4);
     println!("v6 = {:?}", v6);
+
+    let home = IpAddr{
+        kind:IpAddKind::V4,
+        address:String::from("127.0.0.1"),
+    };
+
+    let loopback = IpAddr{
+        kind:IpAddKind::V6,
+        address: String::from("::1"),
+    };
+
+    println!("home address = {:?}", home);
+    println!("loopback address = {:?}", loopback);
 
     println!("Guess the number!");
 
