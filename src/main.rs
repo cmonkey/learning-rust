@@ -12,6 +12,11 @@ struct User{
 struct Color(i32, i32, i32);
 struct Point(i32,i32,i32);
 
+struct Rectangle{
+    width: u32,
+    height: u32,
+}
+
 fn main() {
 
     let tup = (500, 6.4 , false);
@@ -88,10 +93,10 @@ fn main() {
     let back = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
 
-    let rect1 = (30, 50);
+    let rect1 = Rectangle{width: 30, height:50};
 
     println!(
-      "The area of the rectangle is {} square pixels.", area(rect1)
+      "The area of the rectangle is {} square pixels.", area(&rect1)
       );
 
     println!("Guess the number!");
@@ -152,7 +157,7 @@ fn build_user(email:String, userName:String) -> User {
 }
 
 
-fn area(dimensions: (u32, u32)) -> u32 {
-    dimensions.0 * dimensions.1
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
 
