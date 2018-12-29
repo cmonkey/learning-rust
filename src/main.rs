@@ -134,8 +134,8 @@ fn main() {
     let four = IpAddKind::V4;
     let six = IpAddKind::V6;
 
-    println!("four = {}", four);
-    println!("six = {}", six);
+    println!("four = {:?}", four);
+    println!("six = {:?}", six);
 
     println!("Guess the number!");
 
