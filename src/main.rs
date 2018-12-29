@@ -38,6 +38,11 @@ enum IpAddKind{
     V6,
 }
 
+struct IpAddr{
+    kind:IpAddKind,
+    address:String,
+}
+
 fn main() {
 
     let tup = (500, 6.4 , false);
