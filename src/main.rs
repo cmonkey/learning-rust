@@ -5,6 +5,8 @@ use std::cmp::Ordering;
 struct User{
     userName: String,
     email: String,
+    sign_in_count: u64,
+    active: bool,
 }
 
 fn main() {
