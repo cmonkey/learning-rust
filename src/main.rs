@@ -32,6 +32,11 @@ impl Rectangle{
     }
 }
 
+enum IpAddKind{
+    V4,
+    V6,
+}
+
 fn main() {
 
     let tup = (500, 6.4 , false);
