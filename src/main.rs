@@ -34,14 +34,8 @@ impl Rectangle{
 
 #[derive(Debug)]
 enum IpAddKind{
-    V4,
-    V6,
-}
-
-#[derive(Debug)]
-struct IpAddr{
-    kind:IpAddKind,
-    address:String,
+    V4(String),
+    V6(String),
 }
 
 fn main() {
