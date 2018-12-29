@@ -200,3 +200,6 @@ fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
+fn route(ip_type: IpAddKind) {
+    println!("ip_type = {:?}", ip_type);
+}
