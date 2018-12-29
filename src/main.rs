@@ -121,3 +121,14 @@ fn calculate_length(s: &String) -> usize {
 fn change(some_string: &mut String){
     some_string.push_str(" world");
 }
+
+fn build_user(email:String, userName:String) -> User {
+ User{
+   email:email,
+   userName: userName,
+   active: true,
+   sign_in_count: 1,
+   }
+}
+
+
