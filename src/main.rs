@@ -3,6 +3,16 @@ use rand::Rng;
 use std::cmp::Ordering;
 
 fn main() {
+
+    let tup = (500, 6.4 , false);
+
+    let (x,y,z) = tup;
+
+    println!("tup z = {}", z);
+
+    println!("tuple = {}, {}, {}", tup.0, tup.1, tup.2);
+
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -34,5 +44,4 @@ fn main() {
 
         }
     }
-
 }
