@@ -20,6 +20,10 @@ fn main() {
 
     println!("array [4] = {}", array[4]);
 
+    let plus_one = plus_one(10);
+
+    println!("plus_one = {}", plus_one);
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -51,4 +55,8 @@ fn main() {
 
         }
     }
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
 }
