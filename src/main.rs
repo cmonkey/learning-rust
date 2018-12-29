@@ -88,11 +88,10 @@ fn main() {
     let back = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
 
-    let width1 = 10;
-    let heigth1 = 50;
+    let rect1 = (30, 50);
 
     println!(
-      "The area of the rectangle is {} square pixels.", area(width1, heigth1)
+      "The area of the rectangle is {} square pixels.", area(rect1)
       );
 
     println!("Guess the number!");
@@ -153,7 +152,7 @@ fn build_user(email:String, userName:String) -> User {
 }
 
 
-fn area(width: u32, height: u32) -> u32 {
-  width * height
+fn area(dimensions: (u32, u32)) -> u32 {
+    dimensions.0 * dimensions.1
 }
 
