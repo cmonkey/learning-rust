@@ -138,6 +138,12 @@ fn main() {
     println!("four = {:?}", four);
     println!("six = {:?}", six);
 
+    let v4 = route(IpAddKind::V4);
+    let v6 = route(IpAddKind::V6);
+
+    println!("v4 = {:?}", v4);
+    println!("v6 = {:?}", v6);
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -200,6 +206,8 @@ fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
-fn route(ip_type: IpAddKind) {
+fn route(ip_type: IpAddKind) -> IpAddKind{
     println!("ip_type = {:?}", ip_type);
+
+    ip_type
 }
