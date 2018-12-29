@@ -124,8 +124,8 @@ fn change(some_string: &mut String){
 
 fn build_user(email:String, userName:String) -> User {
  User{
-   email:email,
-   userName: userName,
+   email,
+   userName,
    active: true,
    sign_in_count: 1,
    }
