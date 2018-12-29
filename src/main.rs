@@ -38,6 +38,11 @@ fn main() {
     take_string(s);
 
     // println!("s = {}", s); s 离开作用域，没有所有权
+    
+    let lenS = String::from("hello");
+    let len = calculate_length(&lenS);
+
+    println!("lenS = {}, len = {}", lenS, len);
 
     let plus_one = plus_one(10);
 
@@ -82,4 +87,8 @@ fn plus_one(x: i32) -> i32 {
 
 fn take_string(s: String) {
     println!("s = {}", s);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
 }
