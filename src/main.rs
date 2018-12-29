@@ -44,7 +44,7 @@ fn main() {
 
     let (x,y,z) = tup;
 
-    println!("tup z = {}", z);
+    println!("tup x = {}, y = {}, z = {}", x, y, z);
 
     println!("tuple = {}, {}, {}", tup.0, tup.1, tup.2);
 
@@ -132,27 +132,21 @@ fn main() {
 
     println!("sq = {:?}", sq);
 
-    let four = IpAddKind::V4;
-    let six = IpAddKind::V6;
+    let four = IpAddKind::V4(String::from("127.0.0.1"));
+    let six = IpAddKind::V6(String::from("127.0.0.1"));
 
     println!("four = {:?}", four);
     println!("six = {:?}", six);
 
-    let v4 = route(IpAddKind::V4);
-    let v6 = route(IpAddKind::V6);
+    let v4 = route(IpAddKind::V4(String::from("127.0.0.1")));
+    let v6 = route(IpAddKind::V6(String::from("127.0.0.1")));
 
     println!("v4 = {:?}", v4);
     println!("v6 = {:?}", v6);
 
-    let home = IpAddr{
-        kind:IpAddKind::V4,
-        address:String::from("127.0.0.1"),
-    };
+    let home = IpAddKind::V4(String::from("127.0.0.1"));
 
-    let loopback = IpAddr{
-        kind:IpAddKind::V6,
-        address: String::from("::1"),
-    };
+    let loopback = IpAddKind::V6(String::from("::1"));
 
     println!("home address = {:?}", home);
     println!("loopback address = {:?}", loopback);
