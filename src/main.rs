@@ -20,6 +20,10 @@ fn main() {
 
     println!("array [4] = {}", array[4]);
 
+    for arr in array.iter() {
+        println!("arr = {}", arr);
+    }
+
     let plus_one = plus_one(10);
 
     println!("plus_one = {}", plus_one);
