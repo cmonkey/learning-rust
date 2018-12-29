@@ -42,6 +42,12 @@ fn main() {
     let lenS = String::from("hello");
     let len = calculate_length(&lenS);
 
+    let mut some_str = String::from("hello");
+
+    change(&mut some_str);
+
+    println!("some change = {}", some_str);
+
     println!("lenS = {}, len = {}", lenS, len);
 
     let plus_one = plus_one(10);
@@ -91,4 +97,7 @@ fn take_string(s: String) {
 
 fn calculate_length(s: &String) -> usize {
     s.len()
+}
+fn change(some_string: &mut String){
+    some_string.push_str(" world");
 }
