@@ -32,13 +32,19 @@ impl Rectangle{
     }
 }
 
+#[derive(Debug)]
+enum IpAddKind{
+    V4(String),
+    V6(String),
+}
+
 fn main() {
 
     let tup = (500, 6.4 , false);
 
     let (x,y,z) = tup;
 
-    println!("tup z = {}", z);
+    println!("tup x = {}, y = {}, z = {}", x, y, z);
 
     println!("tuple = {}, {}, {}", tup.0, tup.1, tup.2);
 
@@ -126,6 +132,29 @@ fn main() {
 
     println!("sq = {:?}", sq);
 
+    let four = IpAddKind::V4(String::from("127.0.0.1"));
+    let six = IpAddKind::V6(String::from("127.0.0.1"));
+
+    println!("four = {:?}", four);
+    println!("six = {:?}", six);
+
+    let v4 = route(IpAddKind::V4(String::from("127.0.0.1")));
+    let v6 = route(IpAddKind::V6(String::from("127.0.0.1")));
+
+    println!("v4 = {:?}", v4);
+    println!("v6 = {:?}", v6);
+
+    let home = IpAddKind::V4(String::from("127.0.0.1"));
+
+    let loopback = IpAddKind::V6(String::from("::1"));
+
+    println!("home address = {:?}", home);
+    println!("loopback address = {:?}", loopback);
+
+    let some_number = Some(1);
+    let some_string = Some("s string");
+    let absent_number: Option<i32> = None;
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -188,3 +217,8 @@ fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
+fn route(ip_type: IpAddKind) -> IpAddKind{
+    println!("ip_type = {:?}", ip_type);
+
+    ip_type
+}
