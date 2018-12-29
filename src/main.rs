@@ -88,6 +88,13 @@ fn main() {
     let back = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
 
+    let width1 = 10;
+    let heigth1 = 50;
+
+    println!(
+      "The area of the rectangle is {} square pixels.", area(width1, heigth1)
+      );
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -145,4 +152,8 @@ fn build_user(email:String, userName:String) -> User {
    }
 }
 
+
+fn area(width: u32, height: u32) -> u32 {
+  width * height
+}
 
