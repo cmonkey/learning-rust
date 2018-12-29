@@ -9,6 +9,9 @@ struct User{
     active: bool,
 }
 
+struct Color(i32, i32, i32);
+struct Point(i32,i32,i32);
+
 fn main() {
 
     let tup = (500, 6.4 , false);
@@ -81,6 +84,9 @@ fn main() {
     };
 
     println!("user2.active = {} user1.active = {}", user2.active, user1.active);
+
+    let back = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
 
     println!("Guess the number!");
 
