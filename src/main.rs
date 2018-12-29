@@ -77,8 +77,7 @@ fn main() {
 	let user2 = User{
         email:String::from("42.codemonkey@gmail.com"),
         userName:String::from("cmonkey"),
-        active:user1.active,
-        sign_in_count:user1.sign_in_count,
+        ..user1
     };
 
     println!("user2.active = {} user1.active = {}", user2.active, user1.active);
