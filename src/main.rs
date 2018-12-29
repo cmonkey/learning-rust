@@ -74,6 +74,15 @@ fn main() {
 
 	println!("user1 mut email = {}", user1.email);
 
+	let user2 = User{
+        email:String::from("42.codemonkey@gmail.com"),
+        userName:String::from("cmonkey"),
+        active:user1.active,
+        sign_in_count:user1.sign_in_count,
+    };
+
+    println!("user2.active = {} user1.active = {}", user2.active, user1.active);
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
