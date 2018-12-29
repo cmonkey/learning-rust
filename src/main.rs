@@ -2,6 +2,11 @@ use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
 
+struct User{
+    userName: String,
+    email: String,
+}
+
 fn main() {
 
     let tup = (500, 6.4 , false);
