@@ -131,6 +131,12 @@ fn main() {
 
     println!("sq = {:?}", sq);
 
+    let four = IpAddKind::V4;
+    let six = IpAddKind::V6;
+
+    println!("four = {}", four);
+    println!("six = {}", six);
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
