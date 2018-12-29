@@ -151,6 +151,10 @@ fn main() {
     println!("home address = {:?}", home);
     println!("loopback address = {:?}", loopback);
 
+    let some_number = Some(1);
+    let some_string = Some("s string");
+    let absent_number: Option<i32> = None;
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
