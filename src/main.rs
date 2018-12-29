@@ -61,13 +61,18 @@ fn main() {
 
     println!("plus_one = {}", plus_one);
 
-    let user1 = User{
+    let mut user1 = User{
 		email:String::from("42.codemonkey@gmail.com"),
 		userName:String::from("cmonkey"),
 		active:true,
 		sign_in_count: 1,
 	};
 
+	println!("user1 email = {}", user1.email);
+
+	user1.email = String::from("42.codemonkey at gmail.com");
+
+	println!("user1 mut email = {}", user1.email);
 
     println!("Guess the number!");
 
