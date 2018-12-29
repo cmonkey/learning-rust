@@ -61,6 +61,14 @@ fn main() {
 
     println!("plus_one = {}", plus_one);
 
+    let user1 = User{
+		email:String::from("42.codemonkey@gmail.com"),
+		userName:String::from("cmonkey"),
+		active:true,
+		sign_in_count: 1,
+	};
+
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
