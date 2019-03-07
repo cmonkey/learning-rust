@@ -196,6 +196,12 @@ fn main() {
     let u8_value = 0u8;
     some_u8_value(u8_value);
 
+    let mut v: Vec<i32> = Vec::new();
+    v.push(5);
+    v.push(7);
+    v.push(10);
+    v.push(20);
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
