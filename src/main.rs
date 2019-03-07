@@ -1,6 +1,7 @@
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
+use std::collections::HashMap;
 
 struct User {
     userName: String,
@@ -205,6 +206,19 @@ fn main() {
     for i in &mut v {
         *i += 50;
         println!("v item = {}", i);
+    }
+
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("blue"), 10);
+    scores.insert(String::from("yellow"), 50);
+
+    let team_name = String::from("blue");
+    let score = scores.get(&team_name);
+
+    match score {
+        Some(s) => println!("team_name = {} by score = {}", team_name, s),
+        None => println!("team_name = {}", team_name),
     }
 
     println!("Guess the number!");
