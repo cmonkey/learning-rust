@@ -1,8 +1,8 @@
-use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
+use std::io;
 
-struct User{
+struct User {
     userName: String,
     email: String,
     sign_in_count: u64,
@@ -10,49 +10,51 @@ struct User{
 }
 
 struct Color(i32, i32, i32);
-struct Point(i32,i32,i32);
+struct Point(i32, i32, i32);
 
 #[derive(Debug)]
-struct Rectangle{
+struct Rectangle {
     width: u32,
     height: u32,
 }
 
-impl Rectangle{
+impl Rectangle {
     fn area(&self) -> u32 {
         self.width * self.height
     }
 
-    fn can_hold(&self, other:&Rectangle) -> bool {
+    fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
 
     fn square(size: u32) -> Rectangle {
-        Rectangle{width:size, height:size}
+        Rectangle {
+            width: size,
+            height: size,
+        }
     }
 }
 
 #[derive(Debug)]
-enum IpAddKind{
+enum IpAddKind {
     V4(String),
     V6(String),
 }
 
 fn main() {
+    let tup = (500, 6.4, false);
 
-    let tup = (500, 6.4 , false);
-
-    let (x,y,z) = tup;
+    let (x, y, z) = tup;
 
     println!("tup x = {}, y = {}, z = {}", x, y, z);
 
     println!("tuple = {}, {}, {}", tup.0, tup.1, tup.2);
 
-    let array = [1,2,3,4,5,6];
+    let array = [1, 2, 3, 4, 5, 6];
 
     println!("array [0] = {}", array[0]);
 
-    let array:[i32; 5] = [1,2,3,4,5];
+    let array: [i32; 5] = [1, 2, 3, 4, 5];
 
     println!("array [4] = {}", array[4]);
 
@@ -65,7 +67,6 @@ fn main() {
     }
 
     for number in (1..10).rev() {
-
         println!("rev number = {}", number);
     }
 
@@ -74,7 +75,7 @@ fn main() {
     take_string(s);
 
     // println!("s = {}", s); s 离开作用域，没有所有权
-    
+
     let lenS = String::from("hello");
     let len = calculate_length(&lenS);
 
@@ -86,7 +87,7 @@ fn main() {
 
     println!("lenS = {}, len = {}", lenS, len);
 
-    let mut user1 = User{
+    let mut user1 = User {
         email: String::from("42.codemonkey@gmail.com"),
         userName: String::from("cmonkey"),
         active: true,
@@ -98,45 +99,56 @@ fn main() {
     user1.email = String::from("42.codemonkey at gmail.com");
     println!("user1.email in change = {}", user1.email);
 
-
     let plus_one = plus_one(10);
 
     println!("plus_one = {}", plus_one);
 
-    let mut user1 = User{
-		email:String::from("42.codemonkey@gmail.com"),
-		userName:String::from("cmonkey"),
-		active:true,
-		sign_in_count: 1,
-	};
+    let mut user1 = User {
+        email: String::from("42.codemonkey@gmail.com"),
+        userName: String::from("cmonkey"),
+        active: true,
+        sign_in_count: 1,
+    };
 
-	println!("user1 email = {}", user1.email);
+    println!("user1 email = {}", user1.email);
 
-	user1.email = String::from("42.codemonkey at gmail.com");
+    user1.email = String::from("42.codemonkey at gmail.com");
+    println!("user1 mut email = {}", user1.email);
 
-	println!("user1 mut email = {}", user1.email);
-
-	let user2 = User{
-        email:String::from("42.codemonkey@gmail.com"),
-        userName:String::from("cmonkey"),
+    let user2 = User {
+        email: String::from("42.codemonkey@gmail.com"),
+        userName: String::from("cmonkey"),
         ..user1
     };
 
-    println!("user2.active = {} user1.active = {}", user2.active, user1.active);
+    println!(
+        "user2.active = {} user1.active = {}",
+        user2.active, user1.active
+    );
 
     let back = Color(0, 0, 0);
     let origin = Point(0, 0, 0);
 
-    let rect1 = Rectangle{width: 30, height:50};
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
 
     println!("rect1 is {:?}", rect1);
 
     println!(
-      "The area of the rectangle is {} square pixels.", rect1.area()
-      );
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
 
-    let rect2 = Rectangle{width: 10, height: 40};
-    let rect3 = Rectangle{width: 60, height: 45};
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
 
     println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
     println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
@@ -179,24 +191,24 @@ fn main() {
 
         let mut guess = String::new();
 
-        io::stdin().read_line(&mut guess)
+        io::stdin()
+            .read_line(&mut guess)
             .expect("Failed to read line");
 
-        let guess: u32 = match guess.trim().parse(){
+        let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
         };
 
         println!("You guessed: {}", guess);
 
-        match guess.cmp(&secret_number){
+        match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too smaill"),
             Ordering::Greater => println!("Too big"),
             Ordering::Equal => {
                 println!("You win!");
                 break;
             }
-
         }
     }
 }
@@ -212,25 +224,24 @@ fn take_string(s: String) {
 fn calculate_length(s: &String) -> usize {
     s.len()
 }
-fn change(some_string: &mut String){
+fn change(some_string: &mut String) {
     some_string.push_str(" world");
 }
 
-fn build_user(email:String, userName:String) -> User {
- User{
-   email,
-   userName,
-   active: true,
-   sign_in_count: 1,
-   }
+fn build_user(email: String, userName: String) -> User {
+    User {
+        email,
+        userName,
+        active: true,
+        sign_in_count: 1,
+    }
 }
-
 
 fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.height
 }
 
-fn route(ip_type: IpAddKind) -> IpAddKind{
+fn route(ip_type: IpAddKind) -> IpAddKind {
     println!("ip_type = {:?}", ip_type);
 
     ip_type
