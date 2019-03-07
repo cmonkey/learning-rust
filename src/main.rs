@@ -2,6 +2,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 use std::collections::HashMap;
+use std::fs::File;
 
 struct User {
     userName: String,
@@ -229,8 +230,16 @@ fn main() {
         println!("scores key = {}, value = {}", key, value);
     }
 
-    println!("Guess the number!");
+    let f = File::open("hello.txt");
 
+    let f = match f {
+        Ok(file) => file,
+        Err(error) => {
+            panic!("There was a problem opening the file: {:?}", error)
+        },
+    };
+
+    println!("Guess the number!");
     let secret_number = rand::thread_rng().gen_range(1, 101);
 
     //println!("The secret number is : {}", secret_number);
