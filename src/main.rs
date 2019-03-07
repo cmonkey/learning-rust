@@ -3,6 +3,7 @@ use std::cmp::Ordering;
 use std::io;
 use std::collections::HashMap;
 use std::fs::File;
+use std::io::ErrorKind;
 
 struct User {
     userName: String,
@@ -234,8 +235,12 @@ fn main() {
 
     let f = match f {
         Ok(file) => file,
-        Err(error) => {
-            panic!("There was a problem opening the file: {:?}", error)
+        Err(error) => match error.kind() {
+            ErrorKind::NotFound => match File::create("hello.txt"){
+                Ok(fc) => fc,
+                Err(e) => panic!("tried tc create file but theree was a problem {:?}", e),
+            },
+            other_error => panic!("There was a problem opening the file: {:?}", error)
         },
     };
 
