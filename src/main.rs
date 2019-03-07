@@ -5,6 +5,9 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::ErrorKind;
 
+use std::thread;
+use std::time::Duration;
+
 struct User {
     userName: String,
     email: String,
@@ -243,6 +246,18 @@ fn main() {
             other_error => panic!("There was a problem opening the file: {:?}", error)
         },
     };
+
+    thread::spawn(|| {
+        for i in 1..1000 {
+            println!("hi number {} from the spawned thread!", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    for i in 1..500 {
+        println!("hi number {} from the main thread!", i);
+        thread::sleep(Duration::from_millis(1));
+    }
 
     println!("Guess the number!");
     let secret_number = rand::thread_rng().gen_range(1, 101);
