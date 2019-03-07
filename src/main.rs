@@ -180,6 +180,15 @@ fn main() {
     let some_string = Some("s string");
     let absent_number: Option<i32> = None;
 
+    let x: i8 = 5;
+    let y: Option<i8> = Some(5);
+
+    //let sum = x + y;
+
+    //println!("sum = {}", sum);
+
+    println!("coin in value = {}", value_in_cents(Coin::Penny));
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -245,4 +254,20 @@ fn route(ip_type: IpAddKind) -> IpAddKind {
     println!("ip_type = {:?}", ip_type);
 
     ip_type
+}
+
+enum Coin{
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn value_in_cents(coin: Coin) -> u32 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 2,
+        Coin::Dime => 3,
+        Coin::Quarter => 4,
+    }
 }
