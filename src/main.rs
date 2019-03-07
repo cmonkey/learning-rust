@@ -221,6 +221,10 @@ fn main() {
         None => println!("team_name = {}", team_name),
     }
 
+    scores.entry(String::from("cmonkey")).or_insert(500);
+    scores.entry(String::from("blue")).or_insert(20);
+    println!("{:?}", scores);
+
     for (key, value) in &scores{
         println!("scores key = {}, value = {}", key, value);
     }
