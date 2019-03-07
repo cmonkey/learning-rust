@@ -193,6 +193,9 @@ fn main() {
     let six = plus_one_option(five);
     let none = plus_one_option(None);
 
+    let u8_value = 0u8;
+    some_u8_value(u8_value);
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -280,6 +283,16 @@ fn plus_one_option(x: Option<i32>) -> Option<i32> {
     match x {
         None => None,
         Some(i) => Some(i + 1),
+    }
+}
+
+fn some_u8_value(x: u8) {
+    match x {
+        1 => println!("one"),
+        3 => println!("three"),
+        5 => println!("five"),
+        7 => println!("seven"),
+        _ => (),
     }
 }
 
