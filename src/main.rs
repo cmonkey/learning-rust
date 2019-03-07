@@ -202,6 +202,10 @@ fn main() {
     v.push(10);
     v.push(20);
 
+    for i in &v {
+        println!("v item = {}", i);
+    }
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
