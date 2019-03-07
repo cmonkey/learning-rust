@@ -202,7 +202,8 @@ fn main() {
     v.push(10);
     v.push(20);
 
-    for i in &v {
+    for i in &mut v {
+        *i += 50;
         println!("v item = {}", i);
     }
 
