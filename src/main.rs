@@ -259,6 +259,11 @@ fn main() {
         thread::sleep(Duration::from_millis(1));
     }
 
+    let xs = [1,2,3,4,5];
+    for x in &xs{
+        print!("{}", x);
+    }
+
     println!("Guess the number!");
     let secret_number = rand::thread_rng().gen_range(1, 101);
 
