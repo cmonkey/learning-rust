@@ -189,6 +189,10 @@ fn main() {
 
     println!("coin in value = {}", value_in_cents(Coin::Penny));
 
+    let five = Some(5);
+    let six = plus_one_option(five);
+    let none = plus_one_option(None);
+
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1, 101);
@@ -271,3 +275,11 @@ fn value_in_cents(coin: Coin) -> u32 {
         Coin::Quarter => 4,
     }
 }
+
+fn plus_one_option(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
